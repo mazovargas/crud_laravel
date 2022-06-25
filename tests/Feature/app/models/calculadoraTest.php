@@ -17,8 +17,12 @@ class calculadoraTest extends TestCase
 
         $calculadora = new Calculadora();
         $resultado = $calculadora->sumar($numero1, $numero2);
-        $this->assertEquals(3, $resultado);
+        $this->assertEquals(3,   $resultado);
     }
+
+    
+
+
 
 }
 
