@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\PacienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,16 @@ Route::post('/producto/guardar',[ProductoController::class, 'store']);
 Route::get('/producto/editar/{id}', [ProductoController::class, 'edit']);
 Route::put('/producto/actualizar/{id}',[ProductoController::class, 'update']);
 Route::delete('/producto/eliminar/{producto}',[ProductoController::class, 'destroy']);
+
+//Enrutar con Paciente
+Route::get('/paciente', [PacienteController::class, 'index']);
+Route::get('/paciente/crear', [PacienteController::class, 'create']);
+Route::post('/paciente/guardar',[PacienteController::class, 'store']);
+Route::get('/paciente/editar/{id}', [PacienteController::class, 'edit']);
+Route::put('/paciente/actualizar/{id}',[PacienteController::class, 'update']);
+Route::delete('/paciente/eliminar/{paciente}',[PacienteController::class, 'destroy']);
+
+
 
 
 /*
