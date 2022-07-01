@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\RegistroController;
+use App\Gttp\Controllers\SessionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,7 @@ use App\Http\Controllers\PacienteController;
 */
 
 Route::get('/', function () {
-    return view('principal');
+    return view('auth/login');
 });
 
 //Enrutar con categoria
@@ -54,3 +56,7 @@ Route::get('/categoria', function () {
 });
 */
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
