@@ -47,6 +47,10 @@ Route::get('/paciente/editar/{id}', [PacienteController::class, 'edit']);
 Route::put('/paciente/actualizar/{id}',[PacienteController::class, 'update']);
 Route::delete('/paciente/eliminar/{paciente}',[PacienteController::class, 'destroy']);
 
+//Enrutar con Medicamentos
+Route::get('/paciente', [PacienteController::class, 'index']);
+Route::get('/paciente/crear', [PacienteController::class, 'create']);
+
 
 
 
