@@ -50,6 +50,8 @@ Route::delete('/paciente/eliminar/{paciente}',[PacienteController::class, 'destr
 
 
 
+
+
 /*
 Route::get('/categoria', function () {
     return view('categorias.index');
@@ -59,4 +61,4 @@ Route::get('/categoria', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/principal', [App\Http\Controllers\HomeController::class, 'index'])->name('principal');
