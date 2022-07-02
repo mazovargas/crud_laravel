@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PacienteController;
-use App\Http\Controllers\RegistroController;
-use App\Gttp\Controllers\SessionsController;
+use App\Http\Controllers\MedicamentoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,8 +47,12 @@ Route::put('/paciente/actualizar/{id}',[PacienteController::class, 'update']);
 Route::delete('/paciente/eliminar/{paciente}',[PacienteController::class, 'destroy']);
 
 //Enrutar con Medicamentos
-Route::get('/paciente', [PacienteController::class, 'index']);
-Route::get('/paciente/crear', [PacienteController::class, 'create']);
+Route::get('/medicamento', [MedicamentoController::class, 'index']);
+Route::get('/medicamento/crear', [MedicamentoController::class, 'create']);
+Route::post('/medicamento/guardar',[MedicamentoController::class, 'store']);
+Route::get('/medicamento/editar/{id}', [MedicamentoController::class, 'edit']);
+Route::put('/medicamento/actualizar/{id}',[MedicamentoController::class, 'update']);
+Route::delete('/medicamento/eliminar/{medicamento}',[MedicamentoController::class, 'destroy']);
 
 
 

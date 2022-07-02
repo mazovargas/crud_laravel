@@ -1,11 +1,12 @@
 @extends('principal')
 
 @section('contenido')
+
 <div class="card">
         <div class="card-header">
           <h3 class="card-title">Medicamentos</h3>
         <br>
-        <a href="{{ url('/medicamentos/crear')}}" title="crear" class="btn btn-primary">
+        <a href="{{ url('/medicamento/crear')}}" title="crear" class="btn btn-primary">
         crear</a>
         
           <div class="card-tools">
@@ -29,9 +30,9 @@
         <tbody>
             @foreach($medicamentos as $medicamento)
             <tr>
-                <td>{{ $producto->id }}</td>
-                <td>{{ $producto->nombre }}</td>
-                <td>{{ $producto->precio }}</td>
+                <td>{{ $medicamento->id }}</td>
+                <td>{{ $medicamento->Nombre }}</td>
+                <td>{{ $medicamento->Precio }}</td>
 
                 <td class="project-actions text-right">
                 <form action="{{ url('/medicamento/eliminar',$medicamento) }}" method="POST">

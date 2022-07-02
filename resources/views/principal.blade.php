@@ -218,6 +218,7 @@
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{url('/categoria')}}" class="nav-link">
@@ -225,16 +226,27 @@
                   <p>Categorias</p>
                 </a>
               </li>
+
               <li class="nav-item">
                 <a href="{{url('/producto')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Productos</p>
                 </a>
               </li>
+
               <li class="nav-item">
                 <a href="{{url('/paciente')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pacientes</p>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="{{url('/medicamento')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Medicamentos</p>
+                </a>
+              </li>
                 </a>
               </li>
             </ul>

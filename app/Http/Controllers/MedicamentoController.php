@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Medicamentos;
 use Illuminate\Http\Request;
+use App\Models\Medicamento;
 
-class MedicamentosController extends Controller
+
+class MedicamentoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class MedicamentosController extends Controller
      */
     public function index()
     {
-        $medicamentos = Medicamentos::all(); //Obtener todos los productos
+        $medicamentos = Medicamento::all(); //Obtener todos los productos
         return view('medicamento.index')
         ->with('medicamentos',$medicamentos);
     }
@@ -27,7 +28,7 @@ class MedicamentosController extends Controller
      */
     public function create()
     {
-        //
+        return view('medicamento.registrar');
     }
 
     /**
@@ -38,7 +39,15 @@ class MedicamentosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $medicamento = new medicamento([
+            
+            'Nombre' =>$request->get('Nombre'),
+            'Precio' =>$request->get('Precio')
+            ]);
+    
+            $medicamento->save();
+            return redirect('/medicamento')
+            ->with('success','El producto ha sido guardado');
     }
 
     /**
@@ -49,7 +58,7 @@ class MedicamentosController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -60,7 +69,8 @@ class MedicamentosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $medicamento = medicamento::findOrFail($id);
+        return view('medicamento/editar',compact('medicamento'));
     }
 
     /**
@@ -72,7 +82,13 @@ class MedicamentosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $medicamento = medicamento::findOrFail($id);
+        $medicamento->Nombre = $request->Nombre;
+        $medicamento->Precio = $request->Precio;
+
+        $medicamento->update();
+
+        return redirect('/medicamento');
     }
 
     /**
@@ -81,8 +97,10 @@ class MedicamentosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Medicamento $medicamento)
     {
-        //
+          //borrar fisicamente el registgro
+          $medicamento->delete();
+          return redirect('/medicamento');
     }
 }
